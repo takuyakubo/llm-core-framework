@@ -83,27 +83,3 @@ class UnifiedModel(ABC):
         抽象化し、プロバイダー間で一貫した画像処理を可能にします。
         """
         pass
-    
-    def invoke(self, prompt: str, **kwargs):
-        """
-        Invokes the language model with the given prompt.
-        
-        This is the primary method for interacting with the language model.
-        It should handle sending the request to the model provider and returning
-        the response.
-        
-        Args:
-            prompt (str): The text prompt to send to the model
-            **kwargs: Additional provider-specific parameters
-            
-        Returns:
-            The model's response (type depends on provider implementation)
-            
-        Raises:
-            Various exceptions depending on the provider implementation
-            
-        指定されたプロンプトでモデルを呼び出します。
-        これはモデルと対話するための主要なメソッドです。モデルプロバイダーにリクエストを
-        送信し、レスポンスを返す処理を行います。
-        """
-        raise NotImplementedError("Each provider must implement this method")
