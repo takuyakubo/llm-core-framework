@@ -97,29 +97,3 @@ class ModelFactory:
             )
         model_class = cls._registry[provider]
         return model_class(model_name, **kwargs)
-    
-    @classmethod
-    def register_provider(cls, provider_name: str, model_class: Type[UnifiedModel]) -> None:
-        """
-        Register a new provider with its model implementation.
-        
-        This method allows for extending the factory with additional providers
-        beyond those included with the framework.
-        
-        Args:
-            provider_name (str): Name of the provider to register
-            model_class (Type[UnifiedModel]): The model class implementation for this provider
-            
-        Example:
-            >>> class CustomLLMModel(UnifiedModel):
-            ...     # Implementation of the custom model
-            ...     pass
-            >>> ModelFactory.register_provider("custom_provider", CustomLLMModel)
-            >>> model = ModelFactory.create("custom-model-name")
-            
-        新しいプロバイダーとそのモデル実装を登録します。
-        
-        このメソッドにより、フレームワークに含まれているもの以外の追加プロバイダーで
-        ファクトリーを拡張することができます。
-        """
-        cls._registry[provider_name] = model_class
